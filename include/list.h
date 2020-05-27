@@ -1,0 +1,34 @@
+/*
+** EPITECH PROJECT, 2019
+** Runner
+** File description:
+** list.h
+*/
+
+#ifndef RUNNER_LIST_H
+#define RUNNER_LIST_H
+
+#include <stdbool.h>
+
+typedef struct linked_list
+{
+    char *tag;
+    void *element;
+    struct linked_list *next;
+} list_t;
+
+void list_push(list_t **head, void *element, char *tag);
+void list_destroy(list_t **list, int (*)());
+void *list_get_from_index(list_t *list, int index);
+void *list_get_from_tag(list_t *list, char const *tag);
+list_t *list_reverse(list_t *head);
+void list_concat(list_t **dest, list_t *src);
+void list_remove_from_index(list_t **list, int index, int (*)());
+void list_remove_from_tag(list_t **list, char const *tag, int (*)());
+int list_get_length(list_t *list);
+void list_change_from_index(list_t *list, void *element, int index);
+void list_change_from_tag(list_t *list, void *element, char const *tag);
+void destroy_from_list(void *element, int (*element_destroy)());
+bool list_exists(list_t *list, void *element);
+void list_push_to(list_t **list, void *element, char const *tag, int n);
+#endif
